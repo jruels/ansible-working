@@ -1,9 +1,12 @@
 all:
-  hosts:
-    ansible_host: 54.176.179.99
-  vars:
-    ansible_connection: winrm
-    ansible_winrm_transport: ntlm
-    ansible_winrm_server_cert_validation: ignore
-    ansible_user: Administrator
-    ansible_password: JustM300
+  children:
+    webservers:
+      hosts:
+        webserver1:
+          ansible_host: 54.153.33.255
+    vars:
+      ansible_connection: winrm
+      ansible_winrm_transport: ntlm
+      ansible_winrm_server_cert_validation: ignore
+      ansible_user: Administrator
+      ansible_password: JustM300
