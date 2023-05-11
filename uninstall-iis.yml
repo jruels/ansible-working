@@ -1,6 +1,6 @@
 ---
 - name: Ensure IIS is uninstalled
-  hosts: windows
+  hosts: all
   become: yes
   become_user: Administrator
   tasks:
