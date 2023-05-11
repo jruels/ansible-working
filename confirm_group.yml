@@ -1,0 +1,25 @@
+---
+- name: Check if user is member of group
+  hosts: webservers
+  gather_facts: no
+
+  vars:
+    user_name: "Bob"
+    group_name: "Remote Admins"
+
+  tasks:
+    - name: Get group membership
+      win_group_membership:
+        user: "{{ user_name }}"
+        group: "{{ group_name }}"
+      register: group_membership
+
+    - name: Check if user is member of group
+      debug:
+        msg: "User {{ user_name }} is a member of group {{ group_name }}"
+      when: group_membership.is_member == true
+
+    - name: Check if user is not a member of group
+      debug:
+        msg: "User {{ user_name }} is not a member of group {{ group_name }}"
+      when: group_membership.is_member == false
