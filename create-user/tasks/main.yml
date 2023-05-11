@@ -1,2 +1,12 @@
 ---
 # tasks file for create-user
+- name: Create user ansible
+  win_user: 
+    name: ansible
+    password: Password123
+    state: present
+    groups:
+      - Administrators
+  become: yes
+  ignore_errors: yes
+  register: result
