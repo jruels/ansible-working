@@ -1,6 +1,6 @@
 ---
 - name: Install IIS on Windows
-  hosts: webservers
+  hosts: all
   become: yes
   become_method: runas
   become_user: Administrator
