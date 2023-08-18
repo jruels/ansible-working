@@ -4,6 +4,6 @@
   become: true
   tasks:
     - name: Install MySQL
-      apt:
+      yum:
         name: mysql-server
         state: present
